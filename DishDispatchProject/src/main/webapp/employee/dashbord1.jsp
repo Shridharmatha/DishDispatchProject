@@ -118,6 +118,8 @@
         font-size:20px;
         color: #4CAF50;
         text-align:center;
+        justify-content:center;
+        padding:30px;
         
         }
         
@@ -190,7 +192,7 @@
     </div>
     <div class="two">
     <center><h2>About the Company</h2></center>
-    <p>Dishdispatch is a food delivery company that focuses on providing high-quality,
+    <center><p>Dishdispatch is a food delivery company that focuses on providing high-quality,
      chef-curated meal kits to customers. The company partners with top chefs and restaurants 
      to create pre-prepared meals that customers can finish and enjoy at home. Dishdispatch aims 
      to bridge the gap between fine dining and home-cooked meals, offering a convenient way for customers
@@ -199,7 +201,7 @@
     The meals are delivered in insulated, eco-friendly packaging, ensuring freshness and sustainability.
      Dishdispatch stands out by collaborating with renowned chefs to bring a wide range of cuisines and flavors to its customers.
       The company is committed to quality and innovation, making it a popular choice for those seeking a restaurant-quality dining 
-      experience without leaving their homes.</p>
+      experience without leaving their homes.</p></center>
     </div>
     
     <%@ include file="footer.jsp" %>
