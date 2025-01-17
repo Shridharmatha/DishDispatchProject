@@ -5,10 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/General.css">
-    <link rel="stylesheet" href="../CSS/Header.css">
-    <link rel="stylesheet" href="../CSS/JoinUs.css">
-    <link rel="stylesheet" href="../CSS/svg.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/customer/CSS/General.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/customer/CSS/Header.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/customer/CSS/JoinUs.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/customer/CSS/svg.css">
     <title>Join Us</title>
 </head>
 <body>
@@ -107,6 +107,6 @@
             </div>
         </form>
     </main>
-    <script src="../JS/JoinUs.js"></script>
+    <script src="${pageContext.request.contextPath}/customer/JS/JoinUs.js"></script>
 </body>
 </html>
