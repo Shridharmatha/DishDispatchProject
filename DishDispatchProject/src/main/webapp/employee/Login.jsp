@@ -81,31 +81,31 @@
                         <h3>Login</h3>
                     </div>
                     <div class="card-body">
-                    <%//Customer c=(Customer)request.getAttribute("cust"); %>
+                   
                         <% String success = (String) request.getAttribute("success"); 
                            if (success != null) { %>
                             <div class="alert alert-success text-center">
                                 <%= success %>
                             </div>
                         <% } %>
-                        <% String failure = (String) request.getAttribute("failure");
-                           if (failure != null) { %>
+                        <% String failed = (String) request.getAttribute("failed");
+                           if (failed != null) { %>
                             <div class="alert alert-danger text-center">
-                                <%= failure %>
+                                <%= failed %>
                             </div>
                         <% } %>
                         <form action="Signup" method="post">
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
                                 
-                                <input type="email" class="form-control" id="email" name="mail" placeholder="Enter your email" required>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
                               
                             </div>
                             <div class="mb-3">
-                                <label for="password" class="form-label">PIN</label>
-                                <input type="password" class="form-control" id="password" name="pass" placeholder="Enter your PIN" required>
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Enter your PIN" required>
                             </div>
-                            <button type="submit" name="login" class="btn btn-success">Login</button>
+                            <button type="submit" name="Login" class="btn btn-success">Login</button>
                         </form>
                         <div class="mt-3 text-center">
                             <a href="Signup.jsp">Don't have an account? Signup</a>
