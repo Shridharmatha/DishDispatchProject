@@ -50,11 +50,25 @@
             </div>
         </div>
         </section>
+        <div class="card-body">
+                        <% String success = (String) request.getAttribute("success"); 
+                           if (success != null) { %>
+                            <div class="alert alert-success text-center">
+                                <%= success %>
+                            </div>
+                        <% } %>
+                        <% String failed = (String) request.getAttribute("failed"); 
+                           if (failed != null) { %>
+                            <div class="alert alert-danger text-center">
+                                <%= failed %>
+                            </div>
+                        <% } %>
+                        </div>
 
-        <form class="signup-form" action="signup" method="post">
+        <form class="signup-form" action="Signup" method="post">
             <div class="input-field">
                 <label for="username">Name</label>
-                <input type="text" name="username" placeholder="Ramesh">
+                <input type="text" name="name" placeholder="Ramesh">
             </div>
             <div class="input-field">
                 <label for="email">Email</label>
@@ -62,48 +76,33 @@
             </div>
             <div class="input-field">
                 <label for="phone">Phone</label>
-                <input type="text" name="phone" placeholder="xxxxxxxxxx">
-            </div>
-            <div class="input-field">
-                <label for="city">City</label>
-                <input type="text" name="city" placeholder="Benglauru">
-            </div>
-            <div class="input-field">
-                <label for="street">Street</label>
-                <input type="text" name="street" placeholder="151 Woodland 2nd floor">
-            </div>
-            <div class="input-field">
-                <label for="phone">Pincode</label>
-                <input type="text" name="pincode" placeholder="xxxxxx">
+                <input type="text" name="number" placeholder="xxxxxxxxxx">
             </div>
             <div class="input-field">
                 <label for="pw">Password</label>
-                <input type="text" name="pw" placeholder="xxxxxxxx">
+                <input type="text" name="pin" placeholder="xxxxxxxx">
             </div>
             <div class="input-field">
                 <label for="cpw">Confirm Password</label>
-                <input type="text" name="cpw" placeholder="xxxxxxxx">
+                <input type="text" name="conpin" placeholder="xxxxxxxx">
             </div>
             <div>
-                <input class="join-us-button" type="submit" name="signup" value="Sign Up">
+                <input class="join-us-button" type="submit" name="register" value="Sign Up">
             </div>
         </form>
 
-        <form class="signin-form" action="signin" method="post">
-            <div class="input-field">
-                <label class="label" for="username">Name</label>
-                <input type="text" name="username" placeholder="Ramesh">
-            </div>
+        <form class="signin-form" action="Signup" method="post">
+           
             <div class="input-field">
                 <label class="label" for="email">Email</label>
                 <input type="email" name="email" placeholder="ramesh@gmail.com">
             </div>
             <div class="input-field">
                 <label class="label" for="pw">Password</label>
-                <input type="text" name="pw" placeholder="xxxxxxxx">
+                <input type="text" name="password" placeholder="xxxxxxxx">
             </div>
             <div class="submit-field">
-                <input class="join-us-button" type="submit" name="signup" value="Sign In">
+                <input class="join-us-button" type="submit" name="Login" value="Sign In">
             </div>
         </form>
     </main>

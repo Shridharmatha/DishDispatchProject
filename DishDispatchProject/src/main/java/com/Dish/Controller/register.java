@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebServlet(name = "employee/Signup", urlPatterns = { "/employee/Signup" })
+@WebServlet(name = "customer/JSP/Signup", urlPatterns = { "/customer/JSP/Signup" })
 public class register extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -31,20 +31,20 @@ public class register extends HttpServlet {
                 String status = reg.ERegister(name, phone, email, password);
                 if (status.equals("Existed")) {
                     req.setAttribute("Existed", "Data Existed");
-                    RequestDispatcher rd = req.getRequestDispatcher("Signup.jsp");
+                    RequestDispatcher rd = req.getRequestDispatcher("JoinUs.jsp");
                     rd.forward(req, resp);
                 } else if (status.equals("success")) {
                     req.setAttribute("success", "Registration Successful");
-                    RequestDispatcher rd = req.getRequestDispatcher("Login.jsp");
+                    RequestDispatcher rd = req.getRequestDispatcher("JoinUs.jsp");
                     rd.forward(req, resp);
                 } else if (status.equals("failed")) {
                     req.setAttribute("failed", "Registration Failed!");
-                    RequestDispatcher rd = req.getRequestDispatcher("Signup.jsp");
+                    RequestDispatcher rd = req.getRequestDispatcher("JoinUs.jsp");
                     rd.forward(req, resp);
                 }
             } else {
                 req.setAttribute("failed", "Passwords do not match!");
-                RequestDispatcher rd = req.getRequestDispatcher("Signup.jsp");
+                RequestDispatcher rd = req.getRequestDispatcher("JoinUs.jsp");
                 rd.forward(req, resp);
             }
         } 
@@ -56,7 +56,7 @@ public class register extends HttpServlet {
             if (status.equals("success")) {
                 req.setAttribute("success", "Login Successful");
                 System.out.println("Login successful for email: " + email); // Debug log
-                RequestDispatcher rd = req.getRequestDispatcher("dashbord1.jsp"); // Change to the correct destination
+                RequestDispatcher rd = req.getRequestDispatcher("JoinUs.jsp"); // Change to the correct destination
                 rd.forward(req, resp);
             } else {
                 req.setAttribute("failed", "Invalid credentials");
