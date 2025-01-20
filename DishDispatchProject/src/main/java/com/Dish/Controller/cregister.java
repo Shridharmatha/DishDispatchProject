@@ -2,6 +2,7 @@ package com.Dish.Controller;
 
 import java.io.IOException;
 
+import com.Dish.Module.CustRegistration;
 import com.Dish.Module.Registeration;
 
 import jakarta.servlet.RequestDispatcher;
@@ -11,14 +12,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-
-@WebServlet(name = "customer/JSP/Signup", urlPatterns = { "/customer/JSP/Signup" })
-public class register extends HttpServlet {
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+@WebServlet(name = "customer/CSignup", urlPatterns = { "/customer/CSignup" })
+public class cregister extends HttpServlet{
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         HttpSession session = req.getSession(); 
-        Registeration reg = new Registeration(session); 
+        CustRegistration reg = new CustRegistration(session); 
 
         if (req.getParameter("register") != null) {
             String name = req.getParameter("name");
@@ -28,23 +27,23 @@ public class register extends HttpServlet {
             String cpassword = req.getParameter("conpin");
 
             if (password.equals(cpassword)) {
-                String status = reg.ERegister(name, phone, email, password);
+                String status = reg.CRegister(name, phone, email, password);
                 if (status.equals("Existed")) {
                     req.setAttribute("Existed", "Data Existed");
-                    RequestDispatcher rd = req.getRequestDispatcher("JoinUs.jsp");
+                    RequestDispatcher rd = req.getRequestDispatcher("Signup.jsp");
                     rd.forward(req, resp);
                 } else if (status.equals("success")) {
                     req.setAttribute("success", "Registration Successful");
-                    RequestDispatcher rd = req.getRequestDispatcher("JoinUs.jsp");
+                    RequestDispatcher rd = req.getRequestDispatcher("Login.jsp");
                     rd.forward(req, resp);
                 } else if (status.equals("failed")) {
                     req.setAttribute("failed", "Registration Failed!");
-                    RequestDispatcher rd = req.getRequestDispatcher("JoinUs.jsp");
+                    RequestDispatcher rd = req.getRequestDispatcher("Signup.jsp");
                     rd.forward(req, resp);
                 }
             } else {
                 req.setAttribute("failed", "Passwords do not match!");
-                RequestDispatcher rd = req.getRequestDispatcher("JoinUs.jsp");
+                RequestDispatcher rd = req.getRequestDispatcher("Signup.jsp.jsp");
                 rd.forward(req, resp);
             }
         } 
@@ -56,7 +55,7 @@ public class register extends HttpServlet {
             if (status.equals("success")) {
                 req.setAttribute("success", "Login Successful");
                 System.out.println("Login successful for email: " + email); 
-                RequestDispatcher rd = req.getRequestDispatcher("JoinUs.jsp"); 
+                RequestDispatcher rd = req.getRequestDispatcher("Login.jsp"); 
                 rd.forward(req, resp);
             } else {
                 req.setAttribute("failed", "Invalid credentials");
@@ -68,5 +67,5 @@ public class register extends HttpServlet {
 
 
         }
-    }
 
+}

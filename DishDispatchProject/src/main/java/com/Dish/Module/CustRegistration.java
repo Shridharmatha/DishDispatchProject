@@ -6,33 +6,29 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
 import jakarta.servlet.http.HttpSession;
 
-public class Registeration {
+public class CustRegistration {
 	private Connection con;
-	
 	HttpSession se;
 	
-	public Registeration(HttpSession session)
+	public CustRegistration(HttpSession session)
 	{
-		
-			try {
-				Class.forName("com.mysql.cj.jdbc.Driver");
-				con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dish", "root","tiger");
-				se=session;
-				
-			} catch (ClassNotFoundException | SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dish", "root", "tiger");
+			se=session;
+		} catch (ClassNotFoundException | SQLException e) {
 			
-		
+			e.printStackTrace();
+		}
 	}
-	public String ERegister(String name,String phone,String email,String pass )
+	public String CRegister(String cname,String cemail,String phone,String password )
 	{
 		PreparedStatement ps=null;
 		String status="";
-		String query= "select * from employee where email='" + email + "' and epassword='" + pass + "'";
+		String query= "select * from customer where cemail='" + cemail + "' and password='" + password + "'";
 
 		try {
 			Statement st=null;
@@ -45,12 +41,13 @@ public class Registeration {
 				status="Existed";
 			}else {
 				con.setAutoCommit(false);
-				ps = con.prepareStatement("INSERT INTO Employee (eid, ename, ephone, email, epassword, date) VALUES (0, ?, ?, ?, ?, Sysdate())");
+				ps = con.prepareStatement("INSERT INTO customer (cid, cname, cemail, phone, password, datetime) VALUES (0, ?, ?, ?, ?, sysdate())");
 
-				ps.setString(1,name);
-				ps.setString(2, phone);
-				ps.setString(3, email);
-				ps.setString(4, pass);
+
+				ps.setString(1,cname);
+				ps.setString(2, cemail);
+				ps.setString(3, phone);
+				ps.setString(4, password);
 				int res1=ps.executeUpdate();
 				if(res1>0)
 				{
@@ -82,13 +79,13 @@ public class Registeration {
 		
 	}
 	
-	public String login(String email, String password) {
+	public String login(String cemail, String password) {
 	    String status = "";
 	    try {
-	    	String query = "SELECT * FROM employee WHERE email = ? AND epassword = ?";
+	    	String query = "SELECT * FROM customer WHERE cemail = ? AND password = ?";
 
 	        try (PreparedStatement ps = con.prepareStatement(query)) {
-	            ps.setString(1, email);
+	            ps.setString(1, cemail);
 	            ps.setString(2, password);
 	            ResultSet rs = ps.executeQuery();
 	            
@@ -113,5 +110,6 @@ public class Registeration {
 	    }
 	    return status;
 	}
+	
 
 }
