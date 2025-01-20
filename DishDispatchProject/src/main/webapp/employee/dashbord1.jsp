@@ -133,8 +133,8 @@
                 <h2>DishDispatch</h2>
             </div>
             <div>
-                <a href="employee/Signup.jsp"><li>Signup</li></a>
-               <a href="employee/Login.jsp" ><li>Login</li></a>
+                <a href="customer/JSP/JoinUs.jsp"><li>Signup</li></a>
+               
                 <li>Contact</li>
             </div>
         </ul>

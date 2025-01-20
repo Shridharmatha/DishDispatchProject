@@ -87,10 +87,10 @@
                                 <%= success %>
                             </div>
                         <% } %>
-                        <% String failure = (String) request.getAttribute("failure"); 
-                           if (failure != null) { %>
+                        <% String failed = (String) request.getAttribute("failed"); 
+                           if (failed != null) { %>
                             <div class="alert alert-danger text-center">
-                                <%= failure %>
+                                <%= failed %>
                             </div>
                         <% } %>
                         <form action="Signup" method="post">

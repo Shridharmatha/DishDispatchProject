@@ -19,6 +19,7 @@ public class Registeration {
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
 				con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dish", "root","tiger");
+				se=session;
 				
 			} catch (ClassNotFoundException | SQLException e) {
 				// TODO Auto-generated catch block
@@ -81,58 +82,36 @@ public class Registeration {
 		
 	}
 	
-	public String Login(String email,String pass,HttpSession session)
-	{
-		String Email="" ,Id="";
-		String Phone="";
-		String Name="";
-		
-		String status="";
-		PreparedStatement ps=null;
-		String query="select * from Employee where email=? and epassword=?";
-		try {
-			con.setAutoCommit(false);
-			ResultSet rs=null;
-			ps=con.prepareStatement(query);
-			ps.setString(1, email);
-			ps.setString(2, pass);
-			rs=ps.executeQuery();
-			
-			if(rs.next())
-			{   Id=rs.getNString("id");
-				Name=rs.getString("name");
-				Email=rs.getString("email");
-				Phone=rs.getString("phone");
-				se.setAttribute("name",Name);
-				se.setAttribute("phone",Phone);
-				se.setAttribute("email",Email);
-				se.setAttribute("id",Id);
-				status="success";
-				try {
-				con.setAutoCommit(true);
-				}catch(SQLException e)
-				{
-					e.printStackTrace();
-				}
-				
-				
-			}else {
-				status="failed";
-				try {
-					con.rollback();
-					}catch(SQLException e)
-					{
-						e.printStackTrace();
-					}
-			}
-			
-		}catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-		
-		return status;
-		
+	public String login(String email, String password) {
+	    String status = "";
+	    try {
+	    	String query = "SELECT * FROM employee WHERE email = ? AND epassword = ?";
+
+	        try (PreparedStatement ps = con.prepareStatement(query)) {
+	            ps.setString(1, email);
+	            ps.setString(2, password);
+	            ResultSet rs = ps.executeQuery();
+	            
+	            boolean s=(rs.next()) ;
+	                // If login is successful, set session attributes
+	                se.setAttribute("uname", rs.getString("ename"));
+	                se.setAttribute("email", rs.getString("email"));
+	                se.setAttribute("eid", rs.getInt("eid"));
+	               
+	                if(s){
+	                	 status = "success";
+	                }else {
+	                	  status = "failed";
+	                }
+	            
+	              
+	            
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        status = "failed"; // Ensure failure is returned on exception
+	    }
+	    return status;
 	}
 
 }
