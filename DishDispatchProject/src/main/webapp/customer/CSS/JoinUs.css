@@ -2,19 +2,20 @@
 /* main signup */
 .main{
     display: flex;
-    gap: 250px;
-    padding: 50px 50px 170px 50px;
+    gap: 160px;
     background-color: #e2f4e2;
+    padding: 50px;
+    height: 100vh;
 }
 .signup-form{
-    flex: 1;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 20px;
-    padding: 20px;
+    padding: 40px 40px;
     border: 1px solid rgb(208, 203, 203);
     border-radius: 2px;
     background-color: white;
+    max-height: 520px;
 }
 .js-signup-form{
     display: none;
@@ -22,14 +23,13 @@
 .input-field{
     display: grid;
     grid-template-columns: 1fr;
-    row-gap: 6px;
 }
 .input-field label{
     font-size: 1.2rem;
+    margin-bottom: 6px;
 }
 .input-field input{
-    padding: 8px;
-    width: 300px;
+    width: 200px;
 }
 .input-field input::placeholder{
     font-size: 1rem;
@@ -52,21 +52,20 @@
 
 /* main signin */
 .signin-form{
-    flex: 0.4;
-    border: 1px solid rgb(208, 203, 203);
-    border-radius: 2px;
-    background-color: white;
-    padding: 10px 30px 30px 30px;
     display: none;
 }
 .js-signin-form{
-    display: block;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+    border: 1px solid rgb(208, 203, 203);
+    border-radius: 2px;
+    background-color: white;
+    padding: 40px;
+    max-height: 300px;
 }
-.label{
-    padding-top: 20px;
-}
-.submit-field{
-    padding-top: 30px;
+.input-field input{
+    padding: 6px;
 }
 
 /* call action */
@@ -77,16 +76,18 @@
     font-size: 1rem;
     font-family: monospace;
     line-height: 30px;
+    margin-left: 5px;
 }
 .call-action{
-    flex: 1;
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
+    max-width: 600px;
 }
 .buttons-grid{
     display: grid;
     grid-template-columns: 100px 100px;
     gap: 20px;
     padding-top: 30px;
+    margin-left: 5px;
 }

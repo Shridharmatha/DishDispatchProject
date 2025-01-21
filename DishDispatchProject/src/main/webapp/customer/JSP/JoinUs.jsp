@@ -50,6 +50,7 @@
             </div>
         </div>
         </section>
+        
         <div class="card-body">
                         <% String success = (String) request.getAttribute("success"); 
                            if (success != null) { %>
@@ -92,16 +93,15 @@
         </form>
 
         <form class="signin-form" action="Signup" method="post">
-           
-            <div class="input-field">
-                <label class="label" for="email">Email</label>
+           <div class="input-field">
+                <label for="email">Email</label>
                 <input type="email" name="email" placeholder="ramesh@gmail.com">
             </div>
             <div class="input-field">
-                <label class="label" for="pw">Password</label>
+                <label for="pw">Password</label>
                 <input type="text" name="password" placeholder="xxxxxxxx">
             </div>
-            <div class="submit-field">
+            <div>
                 <input class="join-us-button" type="submit" name="Login" value="Sign In">
             </div>
         </form>
