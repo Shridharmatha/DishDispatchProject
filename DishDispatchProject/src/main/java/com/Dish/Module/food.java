@@ -4,6 +4,8 @@ public class food {
 	private int i_id;
 	private String i_name;
 	private double i_price;
+	private String i_type;
+	private String img;
 	public int getI_id() {
 		return i_id;
 	}
@@ -34,8 +36,7 @@ public class food {
 	public void setImg(String img) {
 		this.img = img;
 	}
-	private String i_type;
-	private String img;
+	
 	public food(int i_id, String i_name, double i_price, String i_type, String img) {
 		super();
 		this.i_id = i_id;

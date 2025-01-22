@@ -6,6 +6,16 @@ public class customer {
 	private String cemail;
 	private String phone;
 	private String password;
+	private String date_time;
+	public customer(int cid, String cname, String cemail, String phone, String password, String date_time) {
+		super();
+		this.cid = cid;
+		this.cname = cname;
+		this.cemail = cemail;
+		this.phone = phone;
+		this.password = password;
+		this.date_time = date_time;
+	}
 	public int getCid() {
 		return cid;
 	}
@@ -36,21 +46,14 @@ public class customer {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getDatetime() {
-		return datetime;
+	public String getDate_time() {
+		return date_time;
 	}
-	public void setDatetime(String datetime) {
-		this.datetime = datetime;
+	public void setDate_time(String date_time) {
+		this.date_time = date_time;
 	}
-	private String datetime;
-	public customer(int cid, String cname, String cemail, String phone, String password, String datetime) {
-		super();
-		this.cid = cid;
-		this.cname = cname;
-		this.cemail = cemail;
-		this.phone = phone;
-		this.password = password;
-		this.datetime = datetime;
-	}
+	
+	
+	
 
 }
