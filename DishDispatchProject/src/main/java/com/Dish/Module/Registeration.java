@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+
 import jakarta.servlet.http.HttpSession;
 
 public class Registeration {
@@ -93,7 +95,7 @@ public class Registeration {
 	            ResultSet rs = ps.executeQuery();
 	            
 	            boolean s=(rs.next()) ;
-	                // If login is successful, set session attributes
+	               
 	                se.setAttribute("uname", rs.getString("ename"));
 	                se.setAttribute("email", rs.getString("email"));
 	                se.setAttribute("eid", rs.getInt("eid"));
@@ -109,9 +111,158 @@ public class Registeration {
 	        }
 	    } catch (SQLException e) {
 	        e.printStackTrace();
-	        status = "failed"; // Ensure failure is returned on exception
+	        status = "failed"; 
 	    }
 	    return status;
 	}
+	
+	public String update(String name,String email,String phone) {
+		Statement st = null;
+		String status="";	
+		try {
+			st=con.createStatement();
+			st.executeUpdate("update employee set ename='"+name+"',email='"+email+"',ephone='"+phone+"'where eid='"+se.getAttribute("eid")+"';");
+			status="success";
+		} catch (SQLException e) {
+			
+			status="failed";
+			e.printStackTrace();
+		}
+		return status;
+	}
+	
+	public String deleteEmployee(int eid) {
+	    PreparedStatement ps = null;
+	    String status = "";
+	    String query = "DELETE FROM Employee WHERE eid = ?";
+	    try {	     
+	        con.setAutoCommit(false);	    
+	        ps = con.prepareStatement(query);
+	        ps.setInt(1, eid); 	     
+	        int res = ps.executeUpdate();	     
+	        if (res > 0) {
+	            status = "success";
+	            con.commit();
+	        } else {
+	            status = "failed";
+	            con.rollback(); 
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        try {
+	            con.rollback(); 
+	        } catch (SQLException ex) {
+	            ex.printStackTrace();
+	        }
+	    } 
+
+	    return status;
+	}
+
+	
+	public String insertfood(String i_name,double i_price,String i_type,String img) 
+	{
+		PreparedStatement ps=null;
+		String status="";
+		String query="insert into food values(0,?,?,?,?)";
+		try {
+			con.setAutoCommit(false);
+			ps=con.prepareStatement(query);
+			ps.setString(1,i_name);
+			ps.setDouble(2, i_price);
+			ps.setString(3, i_type);
+			ps.setString(4, img);
+			int res=ps.executeUpdate();
+			if(res>0)
+			{
+				status="success";
+				try {
+					con.setAutoCommit(true);
+				}catch(SQLException e)
+				{
+					e.printStackTrace();
+				}
+			}else {
+				status="failed";
+				try {
+					con.rollback();
+					
+				}catch(SQLException e)
+				{
+					e.printStackTrace();
+				}
+			}
+			
+		}catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return status;
+		
+	}
+	
+	
+	
+	public String updateFood(int i_id, String i_name, double i_price, String i_type, String img) {
+	    PreparedStatement ps = null;
+	    String status1 = "";
+	    String query = "UPDATE food SET i_name = ?, i_price = ?, i_type = ?, img = ? WHERE i_id = ?";
+	    try {	     
+	        con.setAutoCommit(false);	     
+	        ps = con.prepareStatement(query);
+	        ps.setString(1, i_name); 
+	        ps.setDouble(2, i_price); 
+	        ps.setString(3, i_type); 
+	        ps.setString(4, img);
+	        ps.setInt(5, i_id); 	    
+	        int res = ps.executeUpdate();	        
+	        if (res > 0) {
+	            status1 = "success";
+	            con.commit(); 
+	        } else {
+	            status1 = "failed";
+	            con.rollback(); 
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        try {
+	            con.rollback(); 
+	        } catch (SQLException ex) {
+	            ex.printStackTrace();
+	        }
+	    } 
+	    return status1;
+	}
+	
+	
+	public String deleteFood(int i_id) {
+	    PreparedStatement ps = null;
+	    String status1 = "";
+	    String query = "DELETE FROM food WHERE i_id = ?";
+	    try {	       
+	        con.setAutoCommit(false);	      
+	        ps = con.prepareStatement(query);
+	        ps.setInt(1, i_id);	      
+	        int res = ps.executeUpdate();	       
+	        if (res > 0) {
+	            status1 = "success";
+	            con.commit(); 
+	        } else {
+	            status1 = "failed";
+	            con.rollback();
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        try {
+	            con.rollback(); 
+	        } catch (SQLException ex) {
+	            ex.printStackTrace();
+	        }
+	    } 
+	    return status1;
+	}
+
+
+	
 
 }

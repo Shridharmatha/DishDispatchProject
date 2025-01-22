@@ -65,7 +65,7 @@
                         <% } %>
                         </div>
 
-        <form class="signup-form" action="Signup" method="post">
+        <form class="signup-form" action="sign" method="post">
             <div class="input-field">
                 <label for="username">Name</label>
                 <input type="text" name="name" placeholder="Ramesh">
@@ -91,7 +91,7 @@
             </div>
         </form>
 
-        <form class="signin-form" action="Signup" method="post">
+        <form class="signin-form" action="sign" method="post">
            
             <div class="input-field">
                 <label class="label" for="email">Email</label>
@@ -102,7 +102,7 @@
                 <input type="text" name="password" placeholder="xxxxxxxx">
             </div>
             <div class="submit-field">
-                <input class="join-us-button" type="submit" name="Login" value="Sign In">
+                <input class="join-us-button" type="submit" name="login" value="Sign In">
             </div>
         </form>
     </main>

@@ -94,7 +94,7 @@
                                 <%= failed %>
                             </div>
                         <% } %>
-                        <form action="Signup" method="post">
+                        <form action="signup" method="post">
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
                                 
