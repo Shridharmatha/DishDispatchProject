@@ -145,7 +145,7 @@
             <a href="#"><li>Menu</li></a>
             <a href="#"><li>Food Order</li></a>
             <a href="#"><li>Reviews</li></a>
-            <a href="insertitem.jsp"><li>insertOrder</li></a>
+            <a href="insertitem.jsp"><li>insertItem</li></a>
         </ul>
         <div class="upgrade">Upgrade your account</div>
     </div>
@@ -262,6 +262,9 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div>
+     <%@ include file="footer.jsp" %>
     </div>
 </body>
 </html>

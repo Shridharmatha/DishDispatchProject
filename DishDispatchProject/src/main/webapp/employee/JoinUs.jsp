@@ -5,10 +5,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/customer/CSS/General.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/customer/CSS/Header.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/customer/CSS/JoinUs.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/customer/CSS/svg.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Inter", serif;
+        }
+        body{
+            background-color: #e2f4e2;
+        }
+        /* header section*/
+        .header-section{
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            background-color: #CEE4CE;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .left-section{
+            display: flex;
+            flex: 1;
+            align-items: center;
+            padding-left: 30px;
+        }
+        .right-section{
+            display: flex;
+            flex: 2;
+            justify-content: space-around;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .right-section a{
+            color: #404040;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: 0.5s;
+        }
+        .right-section a:hover{
+            color: #000000;
+            text-decoration: underline;
+        }
+        /* main section */
+        .main{
+            display: flex;
+        }
+        /* call-action */
+        .call-action{
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr;
+            padding: 80px 46px 40px 46px;
+        }
+        .heading{
+            font-size: 4rem;
+        }
+        .paragraph{
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+            margin-left: 2px;
+            line-height: 28px;
+        }
+        .buttons-grid{
+            display: grid;
+            grid-template-columns: 120px 120px;
+            column-gap: 40px;
+            margin-left: 2px;
+        }
+        .join-us-button{
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-align: center;
+            padding: 10px 16px;
+        }
+        .span{
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        /* main-sign-up section */
+        .card-body{
+            flex: 1;
+            position: relative;
+        }
+        .signup-form{
+            position: absolute;
+            top: 100px;
+            display: flex;
+            column-gap: 40px;
+            background-color: white;
+            padding: 30px;
+            margin-left: 100px;
+        }
+        .input-fields{
+            display: grid;
+            row-gap: 8px;
+        }
+        .input-field{
+            display: grid;
+        }
+        .input-field > label{
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+        .input-field > input{
+            height: 36px;
+            font-size: 1rem;
+            padding: 18px 8px;
+        }
+        .input-field > input::placeholder{
+            font-size: 1rem;
+        }
+        .signup-button,
+        .signin-button{
+            background-color: black;
+            color: white;
+            font-size: 1rem;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 2px;
+            margin-top: 22px;
+            cursor: pointer;
+        }
+        /* signin-form-section */
+        .signin-form{
+            display: none;
+        }
+        .js-signin-form{
+            position: absolute;
+            top: 100px;
+            background-color: white;
+            padding: 30px;
+            display: grid;
+            row-gap: 10px;
+            margin-left: 300px;
+        }
+        .js-signup-form{
+            display: none;
+        }
+    </style>
     <title>Join Us</title>
 </head>
 <body>
@@ -35,60 +179,65 @@
 
     <main class="main">
         <section class="call-action">
-            <div class="overlay">
-            <h1 class="heading">Dive into Deliciousness</h1>
-            <p class="paragraph">
-                Dive into Deliciousness and experience a world of irresitable flavors
-                crafted to delight your senses! whether you are craving a healthy meal, 
-                a sweet treat, or a savory snack, every bite promises a burst of taste
-                that will leave you wanting more.Dive in, explore, and let us deliver
-                deliciousness to your doorstep.
-            </p>
-            <div class="buttons-grid">
-                <input class="join-us-button" id="js-signup" type="submit" value="Sign Up">
-                <input class="join-us-button" id="js-signin" type="submit" value="Sign In">
-            </div>
-        </div>
+                <h1 class="heading">Dive into <span class="span">Deliciousness</span></h1>
+                <p class="paragraph">
+                    Dive into Deliciousness and experience a world of irresitable flavors
+                    crafted to delight your senses! whether you are craving a healthy meal, 
+                    a sweet treat, or a savory snack, every bite promises a burst of taste
+                    that will leave you wanting more.Dive in, explore, and let us deliver
+                    deliciousness to your doorstep.
+                </p>
+                <div class="buttons-grid">
+                    <input class="join-us-button" id="js-signup" type="submit" value="Sign Up">
+                    <input class="join-us-button" id="js-signin" type="submit" value="Sign In">
+                </div>
         </section>
+        
         <div class="card-body">
-                        <% String success = (String) request.getAttribute("success"); 
-                           if (success != null) { %>
-                            <div class="alert alert-success text-center">
-                                <%= success %>
-                            </div>
-                        <% } %>
-                        <% String failed = (String) request.getAttribute("failed"); 
-                           if (failed != null) { %>
-                            <div class="alert alert-danger text-center">
-                                <%= failed %>
-                            </div>
-                        <% } %>
-                        </div>
+            <% String success = (String) request.getAttribute("success"); 
+            if (success != null) { %>
+                <div class="alert alert-success text-center">
+                    <%= success %>
+                </div>
+            <% } %>
+            <% String failed = (String) request.getAttribute("failed"); 
+            if (failed != null) { %>
+            <div class="alert alert-danger text-center">
+                <%= failed %>
+            </div>
+            <% } %>
+
 
         <form class="signup-form" action="sign" method="post">
-            <div class="input-field">
-                <label for="username">Name</label>
-                <input type="text" name="name" placeholder="Ramesh">
-            </div>
-            <div class="input-field">
-                <label for="email">Email</label>
-                <input type="email" name="email" placeholder="ramesh@gmail.com">
-            </div>
-            <div class="input-field">
-                <label for="phone">Phone</label>
-                <input type="text" name="number" placeholder="xxxxxxxxxx">
-            </div>
-            <div class="input-field">
-                <label for="pw">Password</label>
-                <input type="text" name="pin" placeholder="xxxxxxxx">
-            </div>
-            <div class="input-field">
-                <label for="cpw">Confirm Password</label>
-                <input type="text" name="conpin" placeholder="xxxxxxxx">
-            </div>
+             <div class="input-fields">
+                    <div class="input-field">
+                        <label for="username">Name</label>
+                        <input type="text" name="name" placeholder="Ramesh">
+                    </div>
+                    <div class="input-field">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" placeholder="ramesh@gmail.com">
+                    </div>
+                    <div class="input-field">
+                        <label for="phone">Phone</label>
+                        <input type="text" name="number" placeholder="xxxxxxxxxx">
+                    </div>
+                </div>
+                
+                <div class="input-fields">
+                    <div class="input-field">
+                        <label for="pw">Password</label>
+                        <input type="text" name="pin" placeholder="xxxxxxxx">
+                    </div>
+                    <div class="input-field">
+                        <label for="cpw">Confirm Password</label>
+                        <input type="text" name="conpin" placeholder="xxxxxxxx">
+                    </div>
+               
             <div>
                 <input class="join-us-button" type="submit" name="register" value="Sign Up">
             </div>
+             </div>
         </form>
 
         <form class="signin-form" action="sign" method="post">
@@ -106,6 +255,20 @@
             </div>
         </form>
     </main>
-    <script src="${pageContext.request.contextPath}/customer/JS/JoinUs.js"></script>
+     <script>
+        const signIn = document.getElementById('js-signin');
+        signIn.addEventListener('click', () => {
+            document.querySelector('.signup-form').classList.add('js-signup-form');
+            document.querySelector('.signin-form').classList.add('js-signin-form');
+        })
+
+        const signUp = document.getElementById('js-signup');
+        signUp.addEventListener('click', () => {
+            document.querySelector('.signin-form').classList.remove('js-signin-form');
+            document.querySelector('.signup-form').classList.remove('js-signup-form');
+            document.querySelector('.signup-form').classList.add('signup-form');
+        })
+    </script>
+
 </body>
 </html>
