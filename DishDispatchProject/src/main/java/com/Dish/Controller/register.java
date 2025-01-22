@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebServlet(name = "customer/JSP/Signup", urlPatterns = { "/customer/JSP/Signup" })
+@WebServlet(name = "employee/sign", urlPatterns = { "/employee/sign" })
 public class register extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -48,7 +48,7 @@ public class register extends HttpServlet {
                 rd.forward(req, resp);
             }
         } 
-        else if (req.getParameter("Login") != null) { 
+        else if (req.getParameter("login") != null) { 
             String email = req.getParameter("email");
             String password = req.getParameter("password");
             String status = reg.login(email, password);
@@ -56,12 +56,12 @@ public class register extends HttpServlet {
             if (status.equals("success")) {
                 req.setAttribute("success", "Login Successful");
                 System.out.println("Login successful for email: " + email); 
-                RequestDispatcher rd = req.getRequestDispatcher("JoinUs.jsp"); 
+                RequestDispatcher rd = req.getRequestDispatcher("dashbord2.jsp"); 
                 rd.forward(req, resp);
             } else {
                 req.setAttribute("failed", "Invalid credentials");
                 System.out.println("Login failed for email: " + email); 
-                RequestDispatcher rd = req.getRequestDispatcher("Login.jsp");
+                RequestDispatcher rd = req.getRequestDispatcher("JoinUs.jsp");
                 rd.forward(req, resp);
             }
         }

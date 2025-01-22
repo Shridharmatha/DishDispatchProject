@@ -93,7 +93,7 @@
                                 <%= failed %>
                             </div>
                         <% } %>
-                        <form action="Signup" method="post">
+                        <form action="signup" method="post">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name</label>
                                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>

@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-@WebServlet(name = "customer/CSignup", urlPatterns = { "/customer/CSignup" })
+@WebServlet(name = "employee/signup", urlPatterns = { "/employee/signup" })
 public class cregister extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -21,13 +21,13 @@ public class cregister extends HttpServlet{
 
         if (req.getParameter("register") != null) {
             String name = req.getParameter("name");
-            String phone = req.getParameter("number");
             String email = req.getParameter("email");
+            String phone = req.getParameter("number");
             String password = req.getParameter("pin");
             String cpassword = req.getParameter("conpin");
 
             if (password.equals(cpassword)) {
-                String status = reg.CRegister(name, phone, email, password);
+                String status = reg.CRegister(name, email,phone, password);
                 if (status.equals("Existed")) {
                     req.setAttribute("Existed", "Data Existed");
                     RequestDispatcher rd = req.getRequestDispatcher("Signup.jsp");
@@ -55,7 +55,7 @@ public class cregister extends HttpServlet{
             if (status.equals("success")) {
                 req.setAttribute("success", "Login Successful");
                 System.out.println("Login successful for email: " + email); 
-                RequestDispatcher rd = req.getRequestDispatcher("Login.jsp"); 
+                RequestDispatcher rd = req.getRequestDispatcher("dashbord2.jsp"); 
                 rd.forward(req, resp);
             } else {
                 req.setAttribute("failed", "Invalid credentials");

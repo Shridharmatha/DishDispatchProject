@@ -41,7 +41,7 @@ public class CustRegistration {
 				status="Existed";
 			}else {
 				con.setAutoCommit(false);
-				ps = con.prepareStatement("INSERT INTO customer (cid, cname, cemail, phone, password, datetime) VALUES (0, ?, ?, ?, ?, sysdate())");
+				ps = con.prepareStatement("INSERT INTO customer (cid, cname, cemail, phone, password, datetime) VALUES (0,?,?,?,?,sysdate())");
 
 
 				ps.setString(1,cname);
@@ -91,9 +91,9 @@ public class CustRegistration {
 	            
 	            boolean s=(rs.next()) ;
 	               
-	                se.setAttribute("uname", rs.getString("ename"));
-	                se.setAttribute("email", rs.getString("email"));
-	                se.setAttribute("eid", rs.getInt("eid"));
+	                se.setAttribute("uname", rs.getString("cname"));
+	                se.setAttribute("email", rs.getString("cemail"));
+	                se.setAttribute("cid", rs.getInt("cid"));
 	               
 	                if(s){
 	                	 status = "success";
