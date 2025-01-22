@@ -141,7 +141,7 @@
     <div class="sidebar">
         <h2>GoMeal</h2>
         <ul>
-            <a href="#"><li>Dashboard</li></a>
+            <a href="Cart.jsp"><li>cart</li></a>
             <a href="#"><li>Menu</li></a>
             <a href="#"><li>Food Order</li></a>
             <a href="#"><li>Reviews</li></a>
