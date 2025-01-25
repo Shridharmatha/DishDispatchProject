@@ -5,120 +5,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/General.css">
-    <link rel="stylesheet" href="../CSS/Header.css">
-    <link rel="stylesheet" href="../CSS/Cart.css">
-    <title>Cart</title>
-    <style type="text/css">
-    .food-img{
-    height: 250px;
-    width: 300px;
-    object-fit: cover;
-}
-.heading{
-    padding: 30px 40px 0 40px;
-}
-main{
-    background-color: #e2f4e2;
-}
-/* cart-item-info */
-.cart-items-grid{
-    display: grid;
-    gap: 30px;
-    position: relative;
-    padding: 30px 500px 30px 40px;
-}
-.cart-item-info{
-    display: flex;
-    column-gap: 30px;
-    border: 1px solid rgb(179, 176, 176);
-    padding: 15px;
-    background-color: white;
-}
-.food-name{
-    font-weight: 500;
-    font-size: 2rem;
-    padding: 0 0 18px 0;
-}
-.discount-grid{
-    display: grid;
-    grid-template-columns: 28px 28px;
-}
-.price-grid{
-    display: grid;
-    grid-template-columns: 86px 70px 70px;
-    column-gap: 8px;
-    font-size: 1.5rem;
-    padding: 0 0 36px 0;
-}
-.discount-percent{
-    color: rgb(0, 194, 0);
-    font-weight: 600;
-}
-.retail-price{
-    text-decoration: line-through;
-    color: rgb(146, 145, 145);
-}
-.selling-price{
-    font-weight: 700;
-}
-.food-quantity{
-    font-size: 1.2rem;
-    font-weight: 500;
-    padding: 0 0 12px 0;
-}
-.buttons-grid{
-    display: grid;
-    grid-template-columns: 120px 200px 150px;
-    column-gap: 20px;
-}
-.button-flex{
-    display: flex;
-    padding: 10px;
-    justify-content: center;
-    align-items: center;
-    column-gap: 8px;
-    font-size: 1rem;
-    background-color: black;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        /* header section*/
+        .header-section{
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            background-color: #CEE4CE;
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+        .left-section{
+            display: flex;
+            flex: 1;
+            align-items: center;
+            padding-left: 30px;
+        }
+        .right-section{
+            display: flex;
+            flex: 2;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .right-section a{
+            color: #404040;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: 0.5s;
+        }
+        .right-section a:hover{
+            color: #000000;
+            text-decoration: underline;
+        }
+        .food-img{
+            height: 250px;
+            width: 300px;
+            object-fit: cover;
+        }
+        .heading{
+            padding: 30px 40px 0 40px;
+        }
+        main{
+            background-color: #e2f4e2;
+        }
+        /* cart-item-info */
+        .cart-items-grid{
+            display: grid;
+            gap: 30px;
+            position: relative;
+            padding: 30px 500px 30px 40px;
+        }
+        .cart-item-info{
+            display: flex;
+            column-gap: 30px;
+            border: 1px solid rgb(179, 176, 176);
+            padding: 15px;
+            background-color: white;
+        }
+        .food-name{
+            font-weight: 500;
+            font-size: 2rem;
+            padding: 0 0 18px 0;
+        }
+        .discount-grid{
+            display: grid;
+            grid-template-columns: 28px 28px;
+        }
+        .price-grid{
+            display: grid;
+            grid-template-columns: 86px 70px 70px;
+            column-gap: 8px;
+            font-size: 1.5rem;
+            padding: 0 0 36px 0;
+        }
+        .discount-percent{
+            color: rgb(0, 194, 0);
+            font-weight: 600;
+        }
+        .retail-price{
+            text-decoration: line-through;
+            color: rgb(146, 145, 145);
+        }
+        .selling-price{
+            font-weight: 700;
+        }
+        .food-quantity{
+            font-size: 1.2rem;
+            font-weight: 500;
+            padding: 0 0 12px 0;
+        }
+        .buttons-grid{
+            display: grid;
+            grid-template-columns: 120px 200px 150px;
+            column-gap: 20px;
+        }
+        .button-flex{
+            display: flex;
+            padding: 10px;
+            justify-content: center;
+            align-items: center;
+            column-gap: 8px;
+            font-size: 1rem;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
 
-/* price-details */
-.heading-2{
-    padding: 8px;
-}
-.price-details{
-    position: absolute;
-    top: 180px;
-    right: 60px;
-    border: 1px solid rgb(157, 155, 155);
-    width: 350px;
-    padding: 20px;
-    background-color: white;
-}
-.price-details-grid{
-    display: grid;
-    grid-template-columns: 300px;
-    align-items: center;
-    row-gap: 10px;
-    column-gap: 100px;
-    padding: 0 8px;
-}
-.price-calculation-grid{
-    display: grid;
-    grid-template-columns: 250px 50px;
-    font-size: 1.2rem;
-}
-.total-amount{
-    margin-bottom: 15px;
-}
-.discount-amount{
-    color: #195800;
-}
+        /* price-details */
+        .heading-2{
+            padding: 8px;
+        }
+        .price-details{
+            position: absolute;
+            top: 180px;
+            right: 60px;
+            border: 1px solid rgb(157, 155, 155);
+            width: 350px;
+            padding: 20px;
+            background-color: white;
+        }
+        .price-details-grid{
+            display: grid;
+            grid-template-columns: 300px;
+            align-items: center;
+            row-gap: 10px;
+            column-gap: 100px;
+            padding: 0 8px;
+        }
+        .price-calculation-grid{
+            display: grid;
+            grid-template-columns: 250px 50px;
+            font-size: 1.2rem;
+        }
+        .total-amount{
+            margin-bottom: 15px;
+        }
+        .discount-amount{
+            color: #195800;
+        }
     </style>
+    <title>Cart</title>
 </head>
 <body>
     <header class="header-section">
@@ -143,7 +180,7 @@ main{
     </header>
 
     <main>
-        <h1 class="heading">My Cart(2 items)</h1>
+        <h1 class="heading">My Cart</h1>
         <div class="cart-items-grid">
             <div class="cart-item-info">
                 <img class="food-img" class="" src="../Images/chicken-biriyani-wing.jpg" alt="cart-item">
@@ -200,7 +237,7 @@ main{
                     <p class="food-name">Noodle soup</p>
                     <div class="food-quantity">
                         <label for="quantity">Quantity: 1</label>
-                        <select name="quantity" id="quantity">
+                        <select id="qty2" name="qty">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -248,7 +285,7 @@ main{
                     <p class="food-name">Chicken biriyani with wing</p>
                     <div class="food-quantity">
                         <label for="quantity">Quantity: 1</label>
-                        <select id="qty1" name="qty">
+                        <select id="qty3" name="qty">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -297,7 +334,7 @@ main{
                     <p class="food-name">Noodle soup</p>
                     <div class="food-quantity">
                         <label for="quantity">Quantity: 1</label>
-                        <select name="quantity" id="quantity">
+                        <select id="qty4" name="qty">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -376,5 +413,10 @@ main{
             </div>
         </div>
     </main>
+    
+     <div>
+     <%@ include file="footer.jsp" %>
+    </div>
+    
 </body>
 </html>
