@@ -37,13 +37,13 @@ public class food {
 		this.img = img;
 	}
 	
-	public food(int i_id, String i_name, double i_price, String i_type, String img) {
-		super();
-		this.i_id = i_id;
-		this.i_name = i_name;
-		this.i_price = i_price;
-		this.i_type = i_type;
-		this.img = img;
-	}
+//	public food(int i_id, String i_name, double i_price, String i_type, String img) {
+//		super();
+//		this.i_id = i_id;
+//		this.i_name = i_name;
+//		this.i_price = i_price;
+//		this.i_type = i_type;
+//		this.img = img;
+//	}
 
 }

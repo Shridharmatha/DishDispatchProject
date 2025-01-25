@@ -107,6 +107,7 @@
     </style>
 </head>
 <body>
+<center>
 
   <% String success = (String) request.getAttribute("success"); 
                            if (success != null) { %>
@@ -120,6 +121,7 @@
                                 <%= failed %>
                             </div>
                         <% } %>
+                        </center>
 
     <div class="form-container">
         <h2>Add Item</h2>
@@ -137,8 +139,13 @@
                 <select id="itemType" name="type" required>
                     <option value="">Select type</option>
                     <option value="veg">Veg</option>
-                    <option value="non">Non-Veg</option>
                     <option value="chats">Chats</option>
+                     <option value="Bakery">Bakery</option>
+                     <option value="Burger">Burger</option>
+                     <option value="Beverage">Beverage</option>
+                     <option value="Chicken">Chicken</option>
+                     <option value="Pizza">Pizza</option>
+                     <option value="Seafood">Seafood</option>
                 </select>
             </div>
             <div class="form-group">
@@ -150,5 +157,8 @@
             </div>
         </form>
     </div>
+    
 </body>
+
+
 </html>

@@ -21,7 +21,7 @@
         .sidebar {
             width: 250px;
             background-color: #ffffff;
-            position: fixed;
+            position: absolute;
             height: 100%;
             box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
             padding-top: 20px;
@@ -141,11 +141,11 @@
     <div class="sidebar">
         <h2>GoMeal</h2>
         <ul>
-            <a href="#"><li>Dashboard</li></a>
+            <a href="Cart.jsp"><li>cart</li></a>
             <a href="#"><li>Menu</li></a>
             <a href="#"><li>Food Order</li></a>
-            <a href="#"><li>Reviews</li></a>
-            <a href="insertitem.jsp"><li>insertOrder</li></a>
+            <a href="Elist.jsp"><li>EmployeeList</li></a>
+            <a href="insertitem.jsp"><li>insertItem</li></a>
         </ul>
         <div class="upgrade">Upgrade your account</div>
     </div>
@@ -165,30 +165,38 @@
         <div class="category">
             <h2>Category</h2>
             <div class="category-items">
-                <div class="category-item">
+                <a style="height:150px; width:160px;" href="Bakery.jsp"><div class="category-item">
                     <button style="border:none; background-color: white;"><img style="width:50px; height:50px" src="https://www.emojirequest.com/images/CupcakeEmoji.jpg" alt="Bakery">
                     <h3>Bakery</h3></button>
-                </div>
-                <div class="category-item">
+                </div></a>
+               <a style="height:150px; width:160px;" href="Burger.jsp"> <div class="category-item">
                    <button style="border:none; background-color: white;"> <img style="width:50px; height:50px" src="https://ih1.redbubble.net/image.894871460.7630/st,small,507x507-pad,600x600,f8f8f8.u2.jpg" alt="Burger">
                     <h3>Burger</h3></button>
-                </div>
-                <div class="category-item">
+                </div></a>
+               <a style="height:150px; width:160px;" href="Beverage.jsp"> <div class="category-item">
                     <button style="border:none; background-color: white;"><img style="width:50px; height:50px" src="https://thumbs.dreamstime.com/b/soda-paper-cup-sign-emoji-icon-illustration-take-away-drink-vector-symbol-emoticon-design-clip-art-sign-comic-style-soda-paper-259998273.jpg" alt="Drink">
                     <h3>Beverage</h3></button>
-                </div>
-                <div class="category-item">
+                </div></a>
+              <a style="height:150px; width:160px;" href="Chicken.jsp">  <div class="category-item">
                    <button style="border:none; background-color: white;"> <img style="width:50px; height:50px" src="https://media.istockphoto.com/id/841361556/vector/chicken-emoticon-on-white-background.jpg?s=612x612&w=0&k=20&c=8lZZ4E3_1n6-cGygUFoFPbXDedKmeMwS0QpGaspcwGE=" alt="Drink">
                     <h3>Chicken</h3></button>
-                </div>
-                <div class="category-item">
+                </div></a>
+              <a style="height:150px; width:160px;" href="Pizza.jsp">  <div class="category-item">
                    <button style="border:none; background-color: white;"> <img style="width:50px; height:50px" src="https://media.istockphoto.com/id/812133760/vector/pizza-slice-with-melted-cheese-pepperoni-and-mushrooms.jpg?s=612x612&w=0&k=20&c=WAI2Be5icHXRFc0aBvqea8QtsxwBsyAxs_ZIP-bnKs0=" alt="Drink">
                     <h3>Pizza</h3></button>
-                </div>
-                <div class="category-item">
+                </div></a>
+               <a style="height:150px; width:160px;" href="Seafood.jsp"> <div class="category-item">
                    <button style="border:none; background-color: white;"> <img style="width:50px; height:50px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNLMPSPZuA_b2mKb5ljRUe3SPQPaR5H0qRvA&s" alt="Drink">
                     <h3>Seafood</h3></button>
-                </div>
+                </div></a>
+                 <a style="height:150px; width:160px;" href="Veg.jsp"> <div class="category-item">
+                   <button style="border:none; background-color: white;"> <img style="width:50px; height:50px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShSGjuM6icgvHULhxTK-Dc0qcaNTz21a_qUw&s" alt="Drink">
+                    <h3>Veg</h3></button>
+                </div></a>
+                 <a style="height:150px; width:160px;" href="Chats.jsp"> <div class="category-item">
+                   <button style="border:none; background-color: white;"> <img style="width:50px; height:50px" src="https://t4.ftcdn.net/jpg/02/72/83/33/360_F_272833330_vDxswrzf303aX0a4xe7hIuh90j2FjGRU.jpg" alt="Drink">
+                    <h3>Chats</h3></button>
+                </div></a>
                 
             </div>
         </div>
@@ -262,6 +270,9 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div>
+     <%@ include file="footer.jsp" %>
     </div>
 </body>
 </html>
