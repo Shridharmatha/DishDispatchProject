@@ -12,23 +12,17 @@ import jakarta.servlet.http.HttpSession;
 
 public class Registeration {
 	private Connection con;
-	
 	HttpSession se;
-	
 	public Registeration(HttpSession session)
 	{
-		
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
 				con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dish", "root","tiger");
 				se=session;
 				
 			} catch (ClassNotFoundException | SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-		
 	}
 	public String ERegister(String name,String phone,String email,String pass )
 	{
@@ -158,6 +152,33 @@ public class Registeration {
 
 	    return status;
 	}
+	
+	public ArrayList<Employee> getEmployees() {
+	    PreparedStatement ps = null;
+	    ArrayList<Employee> employees = new ArrayList<Employee>();
+	    ResultSet rs = null;
+	    Employee e = null;
+	    String query = "SELECT * FROM Employee ";
+	    try {
+	        ps = con.prepareStatement(query);
+	        rs = ps.executeQuery();
+	        while (rs.next()) {
+	            e = new Employee();
+	            e.setEid(rs.getInt(1));
+	            e.setName(rs.getString(2));
+	            e.setPhone(rs.getString(3));
+	            e.setEmail(rs.getString(4));
+	            e.setPassword(rs.getString(5));
+	            e.setDate(rs.getString(6));
+	            employees.add(e);
+	        }
+	    } catch (SQLException ex) {
+	        ex.printStackTrace();
+	    }
+	    return employees;
+	}
+
+
 
 	
 	public String insertfood(String i_name,double i_price,String i_type,String img) 
@@ -201,6 +222,198 @@ public class Registeration {
 		
 	}
 	
+	
+	public ArrayList<food> getFood() {
+	    PreparedStatement ps = null;
+	    ArrayList<food> f1 = new ArrayList<food>();
+	    ResultSet rs = null;
+	    food f = null;
+	    String query = "SELECT * FROM food WHERE i_type = 'Bakery'";
+	    try {
+	        ps = con.prepareStatement(query);
+	        rs = ps.executeQuery();
+	        while (rs.next()) {
+	            f = new food();
+	            f.setI_id(rs.getInt(1));
+	            f.setI_name(rs.getString(2));
+	            f.setI_price(rs.getDouble(3));
+	            f.setI_type(rs.getString(4));
+	            f.setImg(rs.getString(5));   
+	            f1.add(f);
+	        }
+	    } catch (SQLException ex) {
+	        ex.printStackTrace();
+	    }
+	    return f1;
+	}
+	
+	public ArrayList<food> getBurger() {
+	    PreparedStatement ps = null;
+	    ArrayList<food> f1 = new ArrayList<food>();
+	    ResultSet rs = null;
+	    food f = null;
+	    String query = "SELECT * FROM food WHERE i_type = 'Burger'";
+	    try {
+	        ps = con.prepareStatement(query);
+	        rs = ps.executeQuery();
+	        while (rs.next()) {
+	            f = new food();
+	            f.setI_id(rs.getInt(1));
+	            f.setI_name(rs.getString(2));
+	            f.setI_price(rs.getDouble(3));
+	            f.setI_type(rs.getString(4));
+	            f.setImg(rs.getString(5));   
+	            f1.add(f);
+	        }
+	    } catch (SQLException ex) {
+	        ex.printStackTrace();
+	    }
+	    return f1;
+	}
+	
+	public ArrayList<food> getBeverage() {
+	    PreparedStatement ps = null;
+	    ArrayList<food> f1 = new ArrayList<food>();
+	    ResultSet rs = null;
+	    food f = null;
+	    String query = "SELECT * FROM food WHERE i_type = 'Beverage'";
+	    try {
+	        ps = con.prepareStatement(query);
+	        rs = ps.executeQuery();
+	        while (rs.next()) {
+	            f = new food();
+	            f.setI_id(rs.getInt(1));
+	            f.setI_name(rs.getString(2));
+	            f.setI_price(rs.getDouble(3));
+	            f.setI_type(rs.getString(4));
+	            f.setImg(rs.getString(5));   
+	            f1.add(f);
+	        }
+	    } catch (SQLException ex) {
+	        ex.printStackTrace();
+	    }
+	    return f1;
+	}
+	
+	public ArrayList<food> getChicken() {
+	    PreparedStatement ps = null;
+	    ArrayList<food> f1 = new ArrayList<food>();
+	    ResultSet rs = null;
+	    food f = null;
+	    String query = "SELECT * FROM food WHERE i_type = 'Chicken'";
+	    try {
+	        ps = con.prepareStatement(query);
+	        rs = ps.executeQuery();
+	        while (rs.next()) {
+	            f = new food();
+	            f.setI_id(rs.getInt(1));
+	            f.setI_name(rs.getString(2));
+	            f.setI_price(rs.getDouble(3));
+	            f.setI_type(rs.getString(4));
+	            f.setImg(rs.getString(5));   
+	            f1.add(f);
+	        }
+	    } catch (SQLException ex) {
+	        ex.printStackTrace();
+	    }
+	    return f1;
+	}
+	
+	public ArrayList<food> getPizza() {
+	    PreparedStatement ps = null;
+	    ArrayList<food> f1 = new ArrayList<food>();
+	    ResultSet rs = null;
+	    food f = null;
+	    String query = "SELECT * FROM food WHERE i_type = 'Pizza'";
+	    try {
+	        ps = con.prepareStatement(query);
+	        rs = ps.executeQuery();
+	        while (rs.next()) {
+	            f = new food();
+	            f.setI_id(rs.getInt(1));
+	            f.setI_name(rs.getString(2));
+	            f.setI_price(rs.getDouble(3));
+	            f.setI_type(rs.getString(4));
+	            f.setImg(rs.getString(5));   
+	            f1.add(f);
+	        }
+	    } catch (SQLException ex) {
+	        ex.printStackTrace();
+	    }
+	    return f1;
+	}
+	
+	public ArrayList<food> getSeafood() {
+	    PreparedStatement ps = null;
+	    ArrayList<food> f1 = new ArrayList<food>();
+	    ResultSet rs = null;
+	    food f = null;
+	    String query = "SELECT * FROM food WHERE i_type = 'Seafood'";
+	    try {
+	        ps = con.prepareStatement(query);
+	        rs = ps.executeQuery();
+	        while (rs.next()) {
+	            f = new food();
+	            f.setI_id(rs.getInt(1));
+	            f.setI_name(rs.getString(2));
+	            f.setI_price(rs.getDouble(3));
+	            f.setI_type(rs.getString(4));
+	            f.setImg(rs.getString(5));   
+	            f1.add(f);
+	        }
+	    } catch (SQLException ex) {
+	        ex.printStackTrace();
+	    }
+	    return f1;
+	}
+	
+	public ArrayList<food> getVeg() {
+	    PreparedStatement ps = null;
+	    ArrayList<food> f1 = new ArrayList<food>();
+	    ResultSet rs = null;
+	    food f = null;
+	    String query = "SELECT * FROM food WHERE i_type = 'veg'";
+	    try {
+	        ps = con.prepareStatement(query);
+	        rs = ps.executeQuery();
+	        while (rs.next()) {
+	            f = new food();
+	            f.setI_id(rs.getInt(1));
+	            f.setI_name(rs.getString(2));
+	            f.setI_price(rs.getDouble(3));
+	            f.setI_type(rs.getString(4));
+	            f.setImg(rs.getString(5));   
+	            f1.add(f);
+	        }
+	    } catch (SQLException ex) {
+	        ex.printStackTrace();
+	    }
+	    return f1;
+	}
+	
+	public ArrayList<food> getChat() {
+	    PreparedStatement ps = null;
+	    ArrayList<food> f1 = new ArrayList<food>();
+	    ResultSet rs = null;
+	    food f = null;
+	    String query = "SELECT * FROM food WHERE i_type = 'chats'";
+	    try {
+	        ps = con.prepareStatement(query);
+	        rs = ps.executeQuery();
+	        while (rs.next()) {
+	            f = new food();
+	            f.setI_id(rs.getInt(1));
+	            f.setI_name(rs.getString(2));
+	            f.setI_price(rs.getDouble(3));
+	            f.setI_type(rs.getString(4));
+	            f.setImg(rs.getString(5));   
+	            f1.add(f);
+	        }
+	    } catch (SQLException ex) {
+	        ex.printStackTrace();
+	    }
+	    return f1;
+	}
 	
 	
 	public String updateFood(int i_id, String i_name, double i_price, String i_type, String img) {

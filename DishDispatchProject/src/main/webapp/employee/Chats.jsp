@@ -1,3 +1,7 @@
+<%@page import="com.Dish.Module.food"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.Dish.Module.Registeration"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -43,7 +47,6 @@
 
         .item-card:hover {
             transform: scale(1.05);
-
         }
 
         .item-image {
@@ -68,7 +71,7 @@
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(6, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
         }
 
@@ -95,33 +98,26 @@
 </header>
 
 <div class="container">
-    <div class="grid" style="display: flex; justify-content: space-between;">
+    <div class="grid">
+        <% 
+        Registeration reg = new Registeration(session);
+        ArrayList<food> al1 = reg.getChat();
+        Iterator<food> itr2 = al1.iterator();
+        while (itr2.hasNext()) {
+            food s = itr2.next();
+        %>
         <div class="item-card">
-            <img style="width: 100px; height:100px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI8eysFq_SFZVCsmlruIotEWzG62XEfuO3Ow&s" alt="Chocolate Cake" class="item-image">
-            <div class="item-name">Chocolate Cake</div>
-            <div class="item-price">$10.99</div>
-            <a href="#" class="btn">Add Cart</a>
+            <img style="width: 100px; height:100px" src="<%=s.getImg() %>" alt="<%=s.getI_name() %>" class="item-image">
+            <div class="item-name"><%=s.getI_name() %></div>
+            <div class="item-price"><%=s.getI_price() %></div>
+            <a href="Cart.jsp" class="btn">Add Cart</a>
         </div>
-        <div class="item-card">
-            <img style="width: 100px; height:100px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI8eysFq_SFZVCsmlruIotEWzG62XEfuO3Ow&s" alt="Chocolate Cake" class="item-image">
-            <div class="item-name">Chocolate Cake</div>
-            <div class="item-price">$10.99</div>
-            <a href="#" class="btn">Add Cart</a>
-        </div>
-        <div class="item-card">
-            <img style="width: 100px; height:100px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI8eysFq_SFZVCsmlruIotEWzG62XEfuO3Ow&s" alt="Chocolate Cake" class="item-image">
-            <div class="item-name">Chocolate Cake</div>
-            <div class="item-price">$10.99</div>
-            <a href="#" class="btn">Add Cart</a>
-        </div>
-        <div class="item-card">
-            <img style="width: 100px; height:100px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI8eysFq_SFZVCsmlruIotEWzG62XEfuO3Ow&s" alt="Chocolate Cake" class="item-image">
-            <div class="item-name">Chocolate Cake</div>
-            <div class="item-price">$10.99</div>
-            <a href="#" class="btn">Add Cart</a>
-        </div>
+        <% } %>
     </div>
 </div>
 
+ <div>
+     <%@ include file="footer.jsp" %>
+    </div>
 </body>
 </html>

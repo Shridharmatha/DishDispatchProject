@@ -180,7 +180,7 @@
     </header>
 
     <main>
-        <h1 class="heading">My Cart(2 items)</h1>
+        <h1 class="heading">My Cart</h1>
         <div class="cart-items-grid">
             <div class="cart-item-info">
                 <img class="food-img" class="" src="../Images/chicken-biriyani-wing.jpg" alt="cart-item">
@@ -413,5 +413,10 @@
             </div>
         </div>
     </main>
+    
+     <div>
+     <%@ include file="footer.jsp" %>
+    </div>
+    
 </body>
 </html>
