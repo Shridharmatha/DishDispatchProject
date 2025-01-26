@@ -110,7 +110,11 @@
             <img style="width: 100px; height:100px" src="<%=s.getImg() %>" alt="<%=s.getI_name() %>" class="item-image">
             <div class="item-name"><%=s.getI_name() %></div>
             <div class="item-price"><%=s.getI_price() %></div>
+            
+             
             <a href="Cart.jsp" class="btn">Add Cart</a>
+            
+            
         </div>
         <% } %>
     </div>
