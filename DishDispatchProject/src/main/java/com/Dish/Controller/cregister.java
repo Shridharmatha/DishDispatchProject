@@ -55,7 +55,7 @@ public class cregister extends HttpServlet{
             if (status.equals("success")) {
                 req.setAttribute("success", "Login Successful");
                 System.out.println("Login successful for email: " + email); 
-                RequestDispatcher rd = req.getRequestDispatcher("dashbord2.jsp"); 
+                RequestDispatcher rd = req.getRequestDispatcher("custdashbord.jsp"); 
                 rd.forward(req, resp);
             } else {
                 req.setAttribute("failed", "Invalid credentials");

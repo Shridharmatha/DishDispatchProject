@@ -6,6 +6,7 @@ public class cart {
 	private String food_image;
 	private String food_type;
 	private double food_price;
+	private int qty;
 	private String datetime;
 	public int getF_id() {
 		return f_id;
@@ -37,20 +38,20 @@ public class cart {
 	public void setFood_price(double food_price) {
 		this.food_price = food_price;
 	}
+	public int getQty() {
+		return qty;
+	}
+	public void setQty(int qty) {
+		this.qty = qty;
+	}
 	public String getDatetime() {
 		return datetime;
 	}
 	public void setDatetime(String datetime) {
 		this.datetime = datetime;
 	}
-	public cart(int f_id, String food_name, String food_image, String food_type, double food_price, String datetime) {
-		super();
-		this.f_id = f_id;
-		this.food_name = food_name;
-		this.food_image = food_image;
-		this.food_type = food_type;
-		this.food_price = food_price;
-		this.datetime = datetime;
-	}
+//	public double getTotalCost() {
+//	    return Double.parseDouble(food_price) * Integer.parseInt(qty);
+//	}
 
 }
