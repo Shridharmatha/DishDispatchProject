@@ -135,9 +135,8 @@
             <div>
                 <a href="employee/JoinUs.jsp"><li>CompanySignup</li></a>
                 <a href="employee/Signup.jsp"><li>UserSignup</li></a>
-              
-               
-                <li>Contact</li>
+                <a href="employee/ContactUs.jsp"><li>Contact Us</li></a>
+                
             </div>
         </ul>
     </div>
