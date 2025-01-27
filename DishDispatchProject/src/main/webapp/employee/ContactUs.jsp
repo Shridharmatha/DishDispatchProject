@@ -98,8 +98,8 @@
                 <div class="contact-info card">
                     <h5>Contact Information</h5>
                     <p><strong>Address:</strong> PENTAGON SPACE Plot No.765,8th Cross Road,Bengaluru</p>
-                    <p><strong>Phone:</strong> +91 8073491136</p>
-                    <p><strong>Email:</strong> support@dishdispatch.com</p>
+                    <p><strong>Phone:</strong> +91 7022769225</p>
+                    <p><strong>Email:</strong> shridhar3584@gmail.com</p>
                     <h6>Google Map:</h6>
                     <div class="iframe-container">
                         <!-- Embed Google Map iframe -->

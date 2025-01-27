@@ -111,5 +111,48 @@ public class CustRegistration {
 	    return status;
 	}
 	
+	public String update(String name,String email,String phone) {
+		Statement st = null;
+		String status="";	
+		try {
+			st=con.createStatement();
+			st.executeUpdate("update customer set cname='"+name+"',cemail='"+email+"',phone='"+phone+"'where eid='"+se.getAttribute("cid")+"';");
+			status="success";
+		} catch (SQLException e) {
+			
+			status="failed";
+			e.printStackTrace();
+		}
+		return status;
+	}
+	
+	public String deleteEmployee(int eid) {
+	    PreparedStatement ps = null;
+	    String status = "";
+	    String query = "DELETE FROM Employee WHERE eid = ?";
+	    try {	     
+	        con.setAutoCommit(false);	    
+	        ps = con.prepareStatement(query);
+	        ps.setInt(1, eid); 	     
+	        int res = ps.executeUpdate();	     
+	        if (res > 0) {
+	            status = "success";
+	            con.commit();
+	        } else {
+	            status = "failed";
+	            con.rollback(); 
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        try {
+	            con.rollback(); 
+	        } catch (SQLException ex) {
+	            ex.printStackTrace();
+	        }
+	    } 
+
+	    return status;
+	}
+	
 
 }
