@@ -99,7 +99,7 @@
 
 <div class="container">
     <div class="grid">
-        <% 
+       <% 
         Registeration reg = new Registeration(session);
         ArrayList<food> al1 = reg.getPizza();
         Iterator<food> itr2 = al1.iterator();
@@ -110,7 +110,22 @@
             <img style="width: 100px; height:100px" src="<%=s.getImg() %>" alt="<%=s.getI_name() %>" class="item-image">
             <div class="item-name"><%=s.getI_name() %></div>
             <div class="item-price"><%=s.getI_price() %></div>
-            <a href="#" class="btn">Add Cart</a>
+            <form action="addtocart" method="post" style="width: 100%;">
+                            <input type="hidden" name="fid" value="<%= s.getI_id()%>" />
+                            
+                            <% if(session.getAttribute("uname") != null) { %>
+                                <div class="button-container">
+                                    <button name="addtocart" class="add-to-cart">Add to Cart</button>
+                                    <select name="qty" id="quantity-<%= s.getI_id() %>" class="quantity-select">
+                                        <% for (int i = 1; i <= 7; i++) { %>
+                                            <option value="<%=i%>"><%=i%></option>
+                                        <% } %>
+                                    </select>
+                                </div>
+                            <% } else { %>
+                                <p style="text-align: center;">Please log in to add items to your cart.</p>
+                            <% } %>
+                        </form>
         </div>
         <% } %>
     </div>

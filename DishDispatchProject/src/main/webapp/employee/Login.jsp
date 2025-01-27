@@ -1,120 +1,80 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background: linear-gradient(135deg, #43cea2, #185a9d);
-            font-family: 'Arial', sans-serif;
-            color: #ffffff;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!--  -->
+	<title>Customer Signup</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		input{
+			width: 250px;
+			text-align: center;
+			border-top: none;
+			border-inline: none;
+			border-right: none;
+			height: 30px;
+		}
+		#btn{
+			width: 80px;
+			height: 30px;
+			background-color: green;
+			border-radius: 10px;
+		}
 
-        .card {
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .card-header {
-            background: linear-gradient(to right, #43cea2, #185a9d);
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
-        }
-
-        .card-header h3 {
-            color: #fff;
-            font-weight: bold;
-            text-align: center;
-            margin: 0;
-        }
-
-        .btn-success {
-            background: linear-gradient(to right, #43cea2, #185a9d);
-            border: none;
-            padding: 12px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 8px;
-            width: 100%;
-        }
-
-        .btn-success:hover {
-            background: linear-gradient(to right, #185a9d, #43cea2);
-        }
-
-        .form-label {
-            color: #185a9d;
-            font-weight: bold;
-        }
-
-        .text-center a {
-            color: #185a9d;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .text-center a:hover {
-            text-decoration: underline;
-        }
-
-        .alert {
-            font-size: 14px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-        }
-    </style>
+	</style>
 </head>
 <body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Login</h3>
-                    </div>
-                    <div class="card-body">
-                   
-                        <% String success = (String) request.getAttribute("success"); 
+  <main>
+  	<div style="width:100%; height:40px">
+  		                <center>
+  	                    <% String success = (String) request.getAttribute("success"); 
                            if (success != null) { %>
                             <div class="alert alert-success text-center">
                                 <%= success %>
                             </div>
                         <% } %>
-                        <% String failed = (String) request.getAttribute("failed");
+                        <% String failed = (String) request.getAttribute("failed"); 
                            if (failed != null) { %>
                             <div class="alert alert-danger text-center">
                                 <%= failed %>
                             </div>
                         <% } %>
-                        <form action="signup" method="post">
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
-                              
-                            </div>
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Enter your PIN" required>
-                            </div>
-                            <button type="submit" name="Login" class="btn btn-success">Login</button>
-                        </form>
-                        <div class="mt-3 text-center">
-                            <a href="Signup.jsp">Don't have an account? Signup</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+                        </center>
+  	</div>
+  	<div style="display: flex; justify-content: center; align-items: end; width: 100%; height: auto; border-radius: 20px; 
+  	margin-top: 100px;">
+  		<div style="width:400px; height: 400px; border: 1px solid black; box-shadow: 0px 0px 8px black;border-radius: 20px; ">
+  			<img style="width:100%; height:100%;border-radius: 20px;" src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-135.jpg?semt=ais_hybrid">
+  		</div>
+  		<div style="width:400px; height: 400px; border: 1px solid black; box-shadow: 0px 0px 8px black;border-radius: 20px;">
+
+  			<form action="signup" method="post">
+  				<div style="margin-top: 60px; ">
+  					<center style="display: block;">			    
+				<label>Email: </label><br>
+				<input type="email" id="email" name="email" placeholder="Enter Email">
+				<br><br>				
+				<label>Password: </label><br>
+				<input type="Password" id="password" name="password" placeholder="Enter Password">
+				<br><br>
+				       <p><a href="#">Forget Password!</a></p>
+					<p> Don't have account &nbsp;<a href="#">Signup here!</a></p>
+					<input id="btn" type="submit"  name="Login" value="Login">
+				</center>
+			</div>
+  			</form>
+  		</div>
+  	</div>
+  	</div>
+  </main>
 </body>
 </html>

@@ -142,8 +142,10 @@
         <h2>GoMeal</h2>
         <ul>
             <a href="Cart.jsp"><li>cart</li></a>
-            <a href="#"><li>Menu</li></a>
-            <a href="#"><li>Food Order</li></a>
+            <a href="Forgotpass.jsp"><li>Forgot pass</li></a>
+            <li><form action="sign" method="get">
+            <input type="submit" name="logout" value="logout">
+            </form></li>
         </ul>
         <div class="upgrade">Upgrade your account</div>
     </div>

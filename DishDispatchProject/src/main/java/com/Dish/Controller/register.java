@@ -65,8 +65,46 @@ public class register extends HttpServlet {
                 rd.forward(req, resp);
             }
         }
+        else if(req.getParameter("forget")!=null)
+        {
+        	 String email = req.getParameter("email");
+        	 String password = req.getParameter("pin");
+             String cpassword = req.getParameter("cpin");
+             if(password.equals(cpassword))
+             {
+            	 String status = reg.updatepass(email, password);
+            	 if (status.equals("success")) {
+                     req.setAttribute("success", "Login Successful");
+                     RequestDispatcher rd = req.getRequestDispatcher("JoinUs1.jsp"); 
+                     rd.forward(req, resp);
+                 } else {
+                     req.setAttribute("failed", "Invalid credentials");
+                     RequestDispatcher rd = req.getRequestDispatcher("Forgotpass.jsp");
+                     rd.forward(req, resp);
+                 }
+
+             }
+             
+        }
 
 
         }
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        HttpSession session = req.getSession(false); 
+        //Registeration reg = new Registeration(session); 
+        
+        if(req.getParameter("logout")!=null)
+        {
+        	session.invalidate();
+        	 req.setAttribute("success", "Logout Successful");
+             RequestDispatcher rd = req.getRequestDispatcher("JoinUs1.jsp"); 
+             rd.forward(req, resp);
+        }
+        
+        
+    	
+    }
     }
 

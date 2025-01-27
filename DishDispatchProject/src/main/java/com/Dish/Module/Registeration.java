@@ -127,6 +127,21 @@ public class Registeration {
 		return status;
 	}
 	
+	public String updatepass(String email,String password) {
+		Statement st = null;
+		String status="";	
+		try {
+			st=con.createStatement();
+			st.executeUpdate("update employee set epassword='"+password+"'where eid='"+se.getAttribute("eid")+"';");
+			status="success";
+		} catch (SQLException e) {
+			
+			status="failed";
+			e.printStackTrace();
+		}
+		return status;
+	}
+	
 	public String deleteEmployee(int eid) {
 	    PreparedStatement ps = null;
 	    String status = "";
@@ -161,6 +176,32 @@ public class Registeration {
 	    ResultSet rs = null;
 	    Employee e = null;
 	    String query = "SELECT * FROM Employee ";
+	    try {
+	        ps = con.prepareStatement(query);
+	        rs = ps.executeQuery();
+	        while (rs.next()) {
+	            e = new Employee();
+	            e.setEid(rs.getInt(1));
+	            e.setName(rs.getString(2));
+	            e.setPhone(rs.getString(3));
+	            e.setEmail(rs.getString(4));
+	            e.setPassword(rs.getString(5));
+	            e.setDate(rs.getString(6));
+	            employees.add(e);
+	        }
+	    } catch (SQLException ex) {
+	        ex.printStackTrace();
+	    }
+	    return employees;
+	}
+	
+	
+	public ArrayList<Employee> getEmployees1() {
+	    PreparedStatement ps = null;
+	    ArrayList<Employee> employees = new ArrayList<Employee>();
+	    ResultSet rs = null;
+	    Employee e = null;
+	    String query = "SELECT * FROM Employee where eid= "+se.getAttribute("eid");
 	    try {
 	        ps = con.prepareStatement(query);
 	        rs = ps.executeQuery();
@@ -485,7 +526,7 @@ public class Registeration {
 	        ArrayList<cart> al = new ArrayList<cart>();
 	        try {
 	            st = con.createStatement();
-	            String qry = ("select *  from cart where status='pending' ");
+	            String qry = ("select *  from cart where status='pending' and eid="+se.getAttribute("eid"));
 	            rs = st.executeQuery(qry);
 	            while (rs.next()) {
 	                 p = new cart();
@@ -529,10 +570,7 @@ public class Registeration {
 	        }
 	        return status;
 	    }
-	public int deletewishlist(int w_id) {
-		
-		return 0;
-	}
+	
 	public int deleteproduct(int c_id) {
 		
 		return 0;

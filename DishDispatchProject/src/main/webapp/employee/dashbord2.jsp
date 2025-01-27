@@ -1,3 +1,9 @@
+<%@page import="com.Dish.Module.Employee"%>
+<%@page import="com.Dish.Module.cart"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.Dish.Module.Registeration"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -138,28 +144,40 @@
     </style>
 </head>
 <body>
+<%
+    Registeration s1 = new Registeration(session);
+    ArrayList<Employee> a = s1.getEmployees1();
+    Iterator<Employee> itr1 = a.iterator();
+
+    while (itr1.hasNext()) {
+        Employee e = itr1.next();
+%>
+   
+
     <div class="sidebar">
         <h2>GoMeal</h2>
         <ul>
             <a href="Cart.jsp"><li>cart</li></a>
-            <a href="#"><li>Menu</li></a>
-            <a href="#"><li>Food Order</li></a>
+            <a href="JoinUs.jsp"><li>Add Employees</li></a>
+            <a href="Forgotpass.jsp"><li>Forgot pass</li></a>
             <a href="Elist.jsp"><li>EmployeeList</li></a>
             <a href="insertitem.jsp"><li>insertItem</li></a>
+            <li><form action="sign" method="get">
+            <input type="submit" name="logout" value="logout">
+            </form></li>
         </ul>
         <div class="upgrade">Upgrade your account</div>
     </div>
-          <div style=" width: 100%; height: 40px;">
-            <div style="">
-             <a href="#"> <img style="width:40px; height:45px; float: right; margin-right: 20px; padding-top: 20px;" src="C:\Users\hp\Desktop\profile-user.png"></a>
-               <!-- <img style="width:40px; height:45px; float: right; margin-right: 160px; padding-top: 20px;" src="C:\Users\hp\Desktop\settings.png" style="opacity: 1.0;">
-              <img style="width:40px; height:45px; float: right; margin-right: 20px; padding-top: 20px;" src="C:\Users\hp\Desktop\notification.png">  -->
-            </div>
-          </div>
+         <div style="width: 100%; height: 40px;">
+    <a href="#" style="float: right; margin-right: 20px; padding-top: 20px; display: flex; align-items: center;">
+        <img src="https://cdn-icons-png.flaticon.com/128/3135/3135715.png" alt="User" style="width: 45px; height: 55px; margin-right: 10px;">
+        <span><%= session.getAttribute("uname") %></span>
+    </a>
+</div>
     <div class="content">
         <div class="menu-header">
             <h1>Menu</h1>
-            <button>Add New Menu</button>
+           
         </div>
 
         <div class="category">
@@ -272,6 +290,7 @@
         </div>
     </div>
     <div>
+    <%} %>
      <%@ include file="footer.jsp" %>
     </div>
 </body>
