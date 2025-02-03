@@ -40,20 +40,10 @@ public class Addtocart extends HttpServlet{
 	                int c_id = Integer.parseInt(req.getParameter("cid"));
 	                int status = reg.deletecart(c_id);
 	                if (status > 0) {
-	                    RequestDispatcher rd1 = req.getRequestDispatcher("cart.jsp");
+	                    RequestDispatcher rd1 = req.getRequestDispatcher("Cart.jsp");
 	                    rd1.forward(req, resp);
 	                }
 	            }
-	            
-	            
-//	            else if (req.getParameter("cid") != null) {
-//	                int c_id = Integer.parseInt(req.getParameter("cid"));
-//	                int status = reg.deleteproduct(c_id);
-//	                if (status > 0) {
-//	                    RequestDispatcher rd1 = req.getRequestDispatcher("DeleteProduct.jsp");
-//	                    rd1.forward(req, resp);
-//	                }
-//	            }
 	           
 	        } catch (Exception e) {
 	            e.printStackTrace();

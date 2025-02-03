@@ -161,6 +161,7 @@
             <a href="JoinUs.jsp"><li>Add Employees</li></a>
             <a href="Forgotpass.jsp"><li>Forgot pass</li></a>
             <a href="Elist.jsp"><li>EmployeeList</li></a>
+             <a href="OrderList.jsp"><li>OrderList</li></a>
             <a href="insertitem.jsp"><li>insertItem</li></a>
             <li><form action="sign" method="get">
             <input type="submit" name="logout" value="logout">

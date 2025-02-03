@@ -61,7 +61,7 @@ public class register extends HttpServlet {
             } else {
                 req.setAttribute("failed", "Invalid credentials");
                 System.out.println("Login failed for email: " + email); 
-                RequestDispatcher rd = req.getRequestDispatcher("JoinUs.jsp");
+                RequestDispatcher rd = req.getRequestDispatcher("JoinUs1.jsp");
                 rd.forward(req, resp);
             }
         }
@@ -85,6 +85,38 @@ public class register extends HttpServlet {
 
              }
              
+        }
+        else if(req.getParameter("order")!=null)
+        {
+        	String address=req.getParameter("address");
+        	String pincode=req.getParameter("pin");
+        	String city=req.getParameter("city");
+        	String state=req.getParameter("state");
+        	
+        	String status=reg.insertorder(address,pincode,city,state); 
+       	 if (status.equals("success")) {
+                req.setAttribute("success", "order Successful");
+                RequestDispatcher rd = req.getRequestDispatcher("OrderList.jsp"); 
+                rd.forward(req, resp);
+            } else {
+                req.setAttribute("failed", "Invalid credentials");
+                RequestDispatcher rd = req.getRequestDispatcher("BuyNow.jsp");
+                rd.forward(req, resp);
+            }
+        }
+        
+        else if (req.getParameter("delete") != null) {
+            int e_id = Integer.parseInt(req.getParameter("userid"));
+            String status = reg.deleteEmployee(e_id);
+            if (status.equals("success")) {
+            	req.setAttribute("success", "Deleted Successful");
+                RequestDispatcher rd1 = req.getRequestDispatcher("Elist.jsp");
+                rd1.forward(req, resp);
+            }else if(status.equals("failed")) {
+            	req.setAttribute("success", "failed to Successful");
+                RequestDispatcher rd1 = req.getRequestDispatcher("Elist.jsp");
+                rd1.forward(req, resp);
+        }
         }
 
 

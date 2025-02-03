@@ -148,7 +148,7 @@
                             tcost += itemTotalCost;  
                     %>
                     <tr>
-                        <td><img src="<%= request.getContextPath() %>/Images/<%= s.getFood_image() %>" alt="<%= s.getFood_name() %>"></td>
+                        <td><img style="width: 100px; height:100px" src="<%=s.getFood_image() %>" alt="<%=s.getFood_name() %>" class="item-image"></td>
                         <td><%=s.getFood_name()%></td>
                         <td>&#8377;<%=s.getFood_price()%></td>
                         <td><%=s.getQty() %></td>
@@ -163,10 +163,13 @@
                     <% } %>
                 </tbody>
             </table>
+           
             <div class="total-cost">Total: &#8377;<%=tcost%></div>
+           
             <div class="button-container">
+             
                 <a href="BuyNow.jsp" class="btn btn-primary">Proceed to Buy</a>
-                <a href="Veg.jsp" class="btn btn-primary">Back</a>
+                <a href="dashbord2.jsp" class="btn btn-primary">Back</a>
             </div>
             <% } else { %>
             <h2>Please log in to view your cart.</h2>

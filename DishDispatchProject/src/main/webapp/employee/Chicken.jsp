@@ -85,6 +85,18 @@
             border-radius: 5px;
             transition: background-color 0.3s ease;
         }
+        
+        .add-to-cart {
+            background-color: #ff9966;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
 
         .btn:hover {
             background-color: #ff704d;

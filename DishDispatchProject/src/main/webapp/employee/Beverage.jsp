@@ -56,6 +56,17 @@
             border-radius: 10px;
             padding: 20px;
         }
+        .add-to-cart {
+            background-color: #ff9966;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
 
         .item-name {
             font-size: 18px;

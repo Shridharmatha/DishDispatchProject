@@ -93,7 +93,7 @@
         </div>
 
         <div class="row">
-            <!-- Contact Info -->
+           
             <div class="col-md-5">
                 <div class="contact-info card">
                     <h5>Contact Information</h5>
@@ -102,17 +102,17 @@
                     <p><strong>Email:</strong> shridhar3584@gmail.com</p>
                     <h6>Google Map:</h6>
                     <div class="iframe-container">
-                        <!-- Embed Google Map iframe -->
+                       
                         <iframe src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d3887.93519103184!2d77.54136127507651!3d12.975996987339782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m3!3m2!1d12.976128!2d77.545515!4m5!1s0x3bae3d6c513b16a5%3A0x44a65c5cfea3693!2spentagon%20space!3m2!1d12.975608699999999!2d77.5423273!5e0!3m2!1sen!2sin!4v1737898056931!5m2!1sen!2sin" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
 
-            <!-- Feedback Form -->
+          
             <div class="col-md-7">
                 <div class="form-section card">
                     <h5>Send us a Message</h5>
-                    <form action="https://formsubmit.co/mallu4564@gmail.com" method="post" onsubmit="sendEmail();" reset(); return();>
+                    <form action="https://formsubmit.co/shridhar3584@gmail.com" method="post" onsubmit="sendEmail();" reset(); return();>
                         <div class="mb-3">
                             <input type="text" class="form-control" placeholder="Your Name">
                         </div>

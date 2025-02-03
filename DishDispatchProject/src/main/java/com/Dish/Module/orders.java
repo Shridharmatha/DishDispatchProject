@@ -11,19 +11,10 @@ public class orders {
 	private String status;
 	private String o_type;
 	private String o_date;
-	public orders(int o_id, String o_img, String c_id, String o_item, double o_price, int qty,
-			String status,String o_type, String o_date) {
-		super();
-		this.o_id = o_id;
-		this.o_img = o_img;
-		this.c_id = c_id;
-		this.o_item = o_item;
-		this.o_type = o_type;
-		this.o_price = o_price;
-		this.qty = qty;
-		this.status = status;
-		this.o_date = o_date;
-	}
+	private String address;
+	private String pincode;
+	private String city;
+	private String state;
 	public int getO_id() {
 		return o_id;
 	}
@@ -48,12 +39,6 @@ public class orders {
 	public void setO_item(String o_item) {
 		this.o_item = o_item;
 	}
-	public String getO_type() {
-		return o_type;
-	}
-	public void setO_type(String o_type) {
-		this.o_type = o_type;
-	}
 	public double getO_price() {
 		return o_price;
 	}
@@ -72,12 +57,41 @@ public class orders {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	public String getO_type() {
+		return o_type;
+	}
+	public void setO_type(String o_type) {
+		this.o_type = o_type;
+	}
 	public String getO_date() {
 		return o_date;
 	}
 	public void setO_date(String o_date) {
 		this.o_date = o_date;
 	}
-
-
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getPincode() {
+		return pincode;
+	}
+	public void setPincode(String pincode) {
+		this.pincode = pincode;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	
 }

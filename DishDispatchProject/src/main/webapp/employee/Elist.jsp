@@ -132,6 +132,20 @@ table.table .avatar {
         <div class="table-responsive">
             <div class="table-wrapper">
                 <div class="table-title">
+                
+                <% String success = (String) request.getAttribute("success"); 
+            if (success != null) { %>
+                <div class="alert alert-success text-center">
+                    <%= success %>
+                </div>
+            <% } %>
+            <% String failed = (String) request.getAttribute("failed"); 
+            if (failed != null) { %>
+            <div class="alert alert-danger text-center">
+                <%= failed %>
+            </div>
+            <% } %>
+                
                     <h2>Employee <b>List</b></h2>
                 </div>
                 <table class="table table-striped table-hover">
@@ -159,9 +173,9 @@ table.table .avatar {
                       <td><%=s.getPhone()%></td>
                       <td><%=s.getDate()%></td>
                       <td>
-                          <form action="deleteuser" method="POST">
+                          <form action="sign" method="post">
                               <input type="hidden" name="userid" value="<%=s.getEid()%>" />
-                              <input type="submit" class="btn btn-danger" value="Delete" style="background-color: red; border: none; margin-left: 23px; width: 60px; height: 26px;">
+                              <input type="submit" class="btn btn-danger" name="delete" value="Delete" style="background-color: red; border: none; margin-left: 23px; width: 60px; height: 26px;">
                           </form>
                       </td>
                   </tr>

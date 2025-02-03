@@ -91,7 +91,7 @@
             tcost += itemTotalCost;
 %>
         <div class="d-flex align-items-center mb-3">
-          <img src="Images/<%= s.getFood_image() %>" alt="<%= s.getFood_name() %>" class="me-3 rounded">
+          <img style="width: 100px; height:100px" src="<%= s.getFood_image() %>" alt="<%= s.getFood_name() %>" class="me-3 rounded">
           <div>
             <p class="mb-1"><strong>Product Name:</strong> <%= s.getFood_name() %></p>
             <p class="mb-1"><strong>Quantity:</strong> <%= s.getQty() %></p>
@@ -105,9 +105,7 @@
             Employee e = itr1.next();
 %>
         <p><strong>Buyer Name:</strong> <%= e.getName() %></p>
-<%
-        }
-%>
+
         <h5 class="text-end"><strong>Total:</strong> ₹<%= tcost %></h5>
 
         <h5 class="mt-4 mb-3">Payment Method:</h5>
@@ -139,25 +137,33 @@
         </div>
 
         <h5 class="mb-3">Delivery Address:</h5>
-        <form>
+        <form action="sign" method="post">
           <div class="mb-3">
             <label for="address" class="form-label">Complete Address:</label>
-            <input type="text" class="form-control" id="address" placeholder="Enter your address" required minlength="5">
+            <input type="text" class="form-control" id="address" name="address" placeholder="Enter your address" required minlength="5">
           </div>
           <div class="mb-3">
             <label for="pincode" class="form-label">PinCode:</label>
-            <input type="number" class="form-control" id="pincode" placeholder="Enter your pincode" required min="100000" max="999999">
+            <input type="number" class="form-control" id="pincode" name="pin" placeholder="Enter your pincode" required min="100000" max="999999">
           </div>
           <div class="mb-3">
             <label for="city" class="form-label">City:</label>
-            <input type="text" class="form-control" id="city" placeholder="Enter your city" required pattern="[A-Za-z\s]+">
+            <input type="text" class="form-control" id="city" name="city" placeholder="Enter your city" required pattern="[A-Za-z\s]+">
           </div>
           <div class="mb-3">
             <label for="state" class="form-label">State:</label>
-            <input type="text" class="form-control" id="state" placeholder="Enter your state" required pattern="[A-Za-z\s]+">
+            <input type="text" class="form-control" id="state" name="state" placeholder="Enter your state" required pattern="[A-Za-z\s]+">
           </div>
-          <button type="submit" class="btn confirm-btn w-100">Confirm Order</button>
+           
+             <input type="hidden" name="cid" value="<%=e.getEid()%>"/>
+             <button type="submit" name="order" class="btn confirm-btn w-100">PlaceOrder</button>
+                            
+          
         </form>
+        
+        <%
+        }
+%>
       </div>
     </div>
   </div>

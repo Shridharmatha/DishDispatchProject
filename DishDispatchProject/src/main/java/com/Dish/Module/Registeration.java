@@ -562,7 +562,7 @@ public class Registeration {
 		 int status = 0;
 	        try {
 	            Statement st = null;
-	            st = (Statement) con.createStatement();
+	            st = con.createStatement();
 	            String qry ="delete from cart where f_id='" + f_id + "'";
 	            status = st.executeUpdate(qry);
 	        } catch (Exception e) {
@@ -574,6 +574,56 @@ public class Registeration {
 	public int deleteproduct(int c_id) {
 		
 		return 0;
+	}
+	public String insertorder(String address, String pincode, String city, String state) {
+	  
+	    String status = "";
+	    String query = "INSERT INTO orders SELECT 0, food_image, '" + se.getAttribute("eid") + "', food_name, food_price, qty, 'pending', 'cod', SYSDATE(), '" 
+	                   + address + "', '" + pincode + "', '" + city + "', '" + state + "' FROM cart WHERE eid = '" + se.getAttribute("eid") + "'";
+
+	    try {
+	        Statement st = con.createStatement();
+	        int a = st.executeUpdate(query);
+	        if (a > 0) {
+	            status = "success";
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return status;
+	}
+
+	
+	public ArrayList<orders> getOrders() {
+	    ArrayList<orders> orderList = new ArrayList<>();
+	    orders order=null;
+	    String query = "SELECT * FROM orders where c_id="+se.getAttribute("eid");
+
+	    try (Statement st = con.createStatement();
+	    		ResultSet rs = st.executeQuery(query)) {
+	        while (rs.next()) {
+	             order = new orders();
+	            order.setO_id(rs.getInt("o_id"));
+	            order.setO_img(rs.getString("o_img"));
+	            order.setC_id(rs.getString("c_id"));
+	            order.setO_item(rs.getString("o_item"));
+	            order.setO_price(rs.getDouble("o_price"));
+	            order.setQty(rs.getInt("qty"));
+	            order.setStatus(rs.getString("status"));
+	            order.setO_type(rs.getString("o_type"));
+	            order.setO_date(rs.getString("o_date")); 
+	            order.setAddress(rs.getString("address"));
+	            order.setPincode(rs.getString("pincode"));
+	            order.setCity(rs.getString("city"));
+	            order.setState(rs.getString("state"));
+
+	           
+	            orderList.add(order);
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    return orderList;
 	}
 
 
